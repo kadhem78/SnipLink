@@ -1,0 +1,34 @@
+body{
+    font-family: "Roboto Mono", monospace;
+    background-color: #111111;
+    color: #f6f6f6;
+}
+nav a{
+    color : #f6f6f6
+}
+nav a:hover{
+    color: #e1e1e1;
+}
+.content{
+    width: 80%;
+    margin: 0px auto;
+
+}
+
+.url-form button{
+    border: none;
+    background-color: transparent;
+    color: #f6f6f6;
+}
+
+.url-form .help{
+    font-size: 0.7rem;
+    color: #e1e1e1;
+}
+
+.copy-btn{
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem; 
+}
+

@@ -1,22 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
-</head>
-<body>
-    <h1>home page</h1>
-    <div id="response">
-        
-    </div>
-    <form>
-       
-          <p>{{ form.main_url.label }} {{ form.main_url }}</p>
-        
-       
-        <p><button  hx-post="/"  hx-target="#response" hx-swap="innerHtml">Submit</button></p>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- start main page content -->
+    <main class="container pt-5">
+        <!-- start page header -->
+        <section class="header text-center py-5 px-2">
+            <h1 class="slogan pb-1">
+                Free URL Shortener
+            </h1>
+            <p class="description ">SnipLink is a free tool to shorten URLs. Create short & memorable links in seconds.</p>
+        </section>
+        <!-- end page header -->
+
+        <!-- start page content -->
+        <section class="content">
+            <div class="row justify-content-center text-center">
+                <div id="response" class="col-12 col-md-8 text-start">
+                </div>
+                <form class="mx-auto col-12 col-md-8 url-form">
+
+                        <div class="text-start pb-2">
+                            Enter Your Url
+                        </div>
+                        <div class="row">
+                            <div class="col-11"> 
+                                {{ form.main_url(class_="form-control" , placeholder_="url") }} 
+                            </div>
+                            
+                        
+                            <div class="col-1">
+                                <button  hx-post="/"  hx-target="#response" hx-swap="innerHtml">
+                                    <i class="bi bi-send-fill fs-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 text-start">
+                                <p class="help pt-1"> exmple : https://www.exemple.com </p>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    
+                </form>
+            </div>
+
+        </section>
+        <!-- end  page content -->
+    </main>
+    <!-- end main page content -->
+{% endblock content %}
+

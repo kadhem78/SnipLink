@@ -28,18 +28,32 @@ def home() :
                     url.suffix = suffix
                     url.save()
                     message = 'succesfully shorted your url' 
-                    status = 'succed'
+                    succed = True
                     
                     context = {
                         'message': message , 
-                        'status' : status , 
+                        'succed' : succed , 
                         'shorted_url' : shorted_url
                     }
                     
                     return render_template('message.html' , context=context)
             except TypeError : 
                 message = 'enter valid url' 
-                return render_template('message.html' , message= message)
+                succed = False
+                context = {
+                    'message' : message , 
+                    'succed' : succed
+                }
+                return render_template('message.html' , context= context)
+        else : 
+            message = 'enter valid url' 
+            succed = False
+            context = {
+                'message' : message , 
+                'succed' : succed
+            }
+            return render_template('message.html' , context= context)
+
                 
             
            

@@ -2,21 +2,37 @@
     function copy() {
         // Get the text field
         var copyText = document.getElementById("shortedUrl");
-        
+        var copyBtn = document.getElementById('cpBtn')
 
       
          // Copy the text inside the text field
         navigator.clipboard.writeText(copyText.innerHTML);
       
         // Alert the copied text
-        alert("Copied the text: " + copyText.innerHTML);
+        copyBtn.innerHTML = '<i class="bi bi-check-all fs-4 text-success"></i>' ; 
     }
 </script>
 
 {% if context %}
-    <p>  {{context['message']}} <p>
-    <p> your shorted url is : <span id="shortedUrl"> {{context['shorted_url']}} </span> </p> 
-    <button onclick='copy()'> copy </button>
+    {% if not context['succed'] %}
+    <div class="alert alert-danger" role="alert">
+        <i class="bi bi-x-circle-fill fs-4"></i> Pleae Enter A Valid url Schema And Try Again !
+    </div>
+    {% else %}
+    <div class="alert alert-success" role="alert">
+        <div class="row">
+            <div class="col-1">
+                <button id='cpBtn' class="copy-btn" onclick='copy()'> <i class="bi bi-copy fs-4 text-success"></i> </button>
+            </div>
+            <div class="col-11">
+                <p> Your Shorted Url : <span id="shortedUrl"> {{context['shorted_url']}} </span> </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+     
+
 
 {% endif %}
 
