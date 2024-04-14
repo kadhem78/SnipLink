@@ -1,0 +1,24 @@
+<script>
+    function copy() {
+        // Get the text field
+        var copyText = document.getElementById("shortedUrl");
+        
+
+      
+         // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.innerHTML);
+      
+        // Alert the copied text
+        alert("Copied the text: " + copyText.innerHTML);
+    }
+</script>
+
+{% if context %}
+    <p>  {{context['message']}} <p>
+    <p> your shorted url is : <span id="shortedUrl"> {{context['shorted_url']}} </span> </p> 
+    <button onclick='copy()'> copy </button>
+
+{% endif %}
+
+
+

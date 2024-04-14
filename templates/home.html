@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
 </head>
 <body>
     <h1>home page</h1>
+    <div id="response">
+        
+    </div>
+    <form>
+       
+          <p>{{ form.main_url.label }} {{ form.main_url }}</p>
+        
+       
+        <p><button  hx-post="/"  hx-target="#response" hx-swap="innerHtml">Submit</button></p>
+    </form>
 </body>
 </html>
