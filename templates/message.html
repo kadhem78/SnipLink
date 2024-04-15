@@ -16,7 +16,7 @@
 {% if context %}
     {% if not context['succed'] %}
     <div class="alert alert-danger" role="alert">
-        <i class="bi bi-x-circle-fill fs-4"></i> Pleae Enter A Valid url Schema And Try Again !
+        <i class="bi bi-x-circle-fill fs-4"></i> {{context['message']}}
     </div>
     {% else %}
     <div class="alert alert-success" role="alert">
